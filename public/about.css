@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f9fc;
+  color: #333;
+}
+
+.about-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.main-heading {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #0b3d91;
+  text-align: center;
+}
+
+.intro {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #444;
+}
+
+.feature-card {
+  background-color: #eef4ff;
+  border-left: 6px solid #4472c4;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+}
+
+.feature-card h2 {
+  margin-top: 0;
+  color: #204080;
+}
+
+.feature-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.feature-card ul li {
+  margin-bottom: 8px;
+  padding-left: 0.8em;
+}
+
+.section-heading {
+  font-size: 1.5rem;
+  color: #0b3d91;
+  margin: 30px 0 15px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.grid-trackers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.tracker-card {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  padding: 18px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.tracker-card:hover {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.tracker-card h3 {
+  color: #1d3557;
+  margin-top: 0;
+}
+
+.tracker-card p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  color: #555;
+}
