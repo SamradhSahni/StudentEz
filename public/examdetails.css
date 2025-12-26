@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5f9fc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.container {
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 30px 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.heading {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.exam-date {
+  font-size: 18px;
+  color: #777;
+}
+
+.subheading {
+  font-size: 20px;
+  margin: 25px 0 15px;
+  color: #34495e;
+}
+
+.note-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.note-item {
+  background-color: #f9f9f9;
+  border-left: 4px solid #3498db;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+}
+
+.note-item strong {
+  font-size: 18px;
+  color: #2c3e50;
+}
+
+.note-type {
+  font-size: 14px;
+  color: #888;
+  margin-left: 8px;
+}
+
+.note-content {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.empty-msg {
+  font-size: 16px;
+  color: #c0392b;
+  background-color: #ffecec;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.note-form input,
+.note-form textarea {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+.note-form textarea {
+  height: 100px;
+}
+
+.note-form button {
+  align-self: flex-start;
+  padding: 10px 20px;
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.note-form button:hover {
+  opacity: 0.9;
+}
