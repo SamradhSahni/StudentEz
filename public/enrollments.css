@@ -1,0 +1,91 @@
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5f9fc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Main Container */
+.container {
+  max-width: 960px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Headings */
+.page-title {
+  font-size: 32px;
+  text-align: center;
+  color: #0077cc;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 16px;
+  text-align: center;
+  color: #666;
+  margin-bottom: 32px;
+}
+
+/* Workshop Card */
+.workshop-card {
+  background-color: #f0f7ff;
+  border-left: 5px solid #0077cc;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  transition: all 0.2s ease;
+}
+
+.workshop-card:hover {
+  background-color: #e7f2ff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 119, 204, 0.1);
+}
+
+.workshop-title {
+  font-size: 22px;
+  margin: 0 0 16px;
+  color: #004b99;
+}
+
+/* Enrolled Users List */
+.enrolled-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.enrolled-item {
+  background-color: #ffffff;
+  margin-bottom: 10px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #d0e7ff;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  color: #333;
+}
+
+.enrolled-item .user-icon {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+/* No Enrollments Fallback */
+.no-enroll {
+  background-color: #fff8e6;
+  color: #a88734;
+  border: 1px dashed #f0c36d;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-style: italic;
+  font-weight: 500;
+  margin-top: 10px;
+}
