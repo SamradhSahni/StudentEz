@@ -1,0 +1,142 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f9ff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.heading {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2c3e50;
+}
+
+.add-task-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.add-task-form input[type="text"],
+.add-task-form input[type="date"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 220px;
+}
+
+.add-task-form button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-task-form button:hover {
+  background-color: #2980b9;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fefefe;
+  border-left: 5px solid #3498db;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.task-item.completed {
+  border-left-color: #2ecc71;
+  background-color: #ecf9f1;
+  opacity: 0.85;
+}
+
+.task-title {
+  font-size: 18px;
+}
+
+.task-title s {
+  color: #888;
+}
+
+.complete-btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.complete-btn:hover {
+  background-color: #219150;
+}
+
+.empty-msg {
+  text-align: center;
+  font-size: 18px;
+  color: #888;
+  padding: 20px;
+}
+
+.date-form {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.date-form label {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.date-form input[type="date"] {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.date-form button {
+  margin-left: 10px;
+  padding: 8px 14px;
+  font-size: 15px;
+  background-color: #8e44ad;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.date-form button:hover {
+  background-color: #732d91;
+}
