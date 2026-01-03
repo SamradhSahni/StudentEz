@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Edit Attendance</title>
+  <link rel="stylesheet" href="/edit.css" />
+  <link rel="stylesheet" href="/navbar.css">
+</head>
+<body>
+  {{> navbar}}
+
+  <div class="container">
+    <h2 class="heading"> Edit Attendance</h2>
+
+    <form class="attendance-form" method="POST">
+      <label for="total">Total Classes</label>
+      <input type="number" name="total" id="total" value="{{attendance.totalClasses}}" required min="0" />
+
+      <label for="attended">Attended Classes</label>
+      <input type="number" name="attended" id="attended" value="{{attendance.attendedClasses}}" required  />
+
+      <button type="submit" class="update-btn">Update Attendance</button>
+    </form>
+  </div>
+</body>
+</html>
