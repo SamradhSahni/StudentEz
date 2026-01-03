@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance Tracker</title>
+  <link rel="stylesheet" href="/navbar.css">
+  <link rel="stylesheet" href="/attendance.css">
+</head>
+<body>
+
+  {{> navbar}}
+
+  <div class="container">
+    <h1>📊 Attendance Panel</h1>
+
+    <form action="/subjects/add" method="POST" class="form-inline">
+      <input type="text" name="name" placeholder="Subject Name" required />
+      <button type="submit">Add Subject</button>
+    </form>
+
+    <form action="/home/set-goal" method="POST" class="form-inline">
+      <input type="number" name="goal" id="goal" value="{{goal}}" placeholder="Set Attendance Goal (%)" min="1" max="100" required />
+      <button type="submit">Set Goal</button>
+    </form>
+
+    <ul class="subject-list">
+      {{#each subjects}}
+        <li class="subject-item">
+          <strong>{{this.name}}</strong>
+          <div class="actions">
+            <a href="/attendance/mark/{{this._id}}">Mark</a>
+            <a href="/attendance/summary/{{this._id}}">Summary</a>
+            <a href="/attendance/edit/{{this._id}}">Edit</a>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+
+    <div class="quote">
+      💡 <em>"Discipline is the bridge between goals and accomplishment."</em>
+    </div>
+  </div>
+
+</body>
+</html>
