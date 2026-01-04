@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Subjects</title>
+  <link rel="stylesheet" href="/subjects.css" />
+  <link rel="stylesheet" href="/navbar.css" />
+</head>
+<body>
+  {{> navbar}}
+
+  <div class="container">
+    <h2 class="heading">📚 Your Subjects</h2>
+
+    <form action="/subjects/add" method="POST" class="add-form">
+      <input type="text" name="name" placeholder="Enter subject name" required />
+      <button type="submit" class="add-btn">➕ Add Subject</button>
+    </form>
+
+    {{#if subjects.length}}
+      <ul class="subject-list">
+        {{#each subjects}}
+          <li class="subject-item">
+            <span class="subject-name">{{this.name}}</span>
+            <div class="links">
+              <a href="/attendance/mark/{{this._id}}" class="btn mark">📍 Mark Attendance</a>
+              <a href="/attendance/summary/{{this._id}}" class="btn summary">📊 View Summary</a>
+            </div>
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p class="empty-msg">You haven’t added any subjects yet.</p>
+    {{/if}}
+  </div>
+</body>
+</html>
