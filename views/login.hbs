@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | StudentEz</title>
+  <link rel="stylesheet" href="/login.css" />
+  
+</head>
+
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <h2 class="login-title">Login to StudentEz</h2>
+
+      <form method="POST" class="login-form">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" name="username" placeholder="Username" required />
+        </div>
+
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" name="password" placeholder="Password" required />
+        </div>
+
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+
+      <div class="divider">or</div>
+
+      <div class="google-login">
+        <a href="/auth/google" class="google-btn">
+          <i class="fab fa-google"></i> Login with Google
+        </a>
+      </div>
+
+      <p class="signup-link">
+         Don't have an account? <a href="/signup">Sign up here</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
