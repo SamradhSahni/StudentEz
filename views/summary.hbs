@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Attendance Summary</title>
+  <link rel="stylesheet" href="/summary.css" />
+  <link rel="stylesheet" href="/navbar.css" />
+</head>
+<body>
+  {{> navbar}}
+
+  <div class="container">
+    <h2 class="heading">📊 Attendance Summary</h2>
+
+    <div class="summary-block">
+      <p><strong>Total Classes:</strong> {{attendance.totalClasses}}</p>
+      <p><strong>Attended:</strong> {{attendance.attendedClasses}}</p>
+      <p><strong>Current Attendance:</strong> <span class="highlight">{{percentage}}%</span></p>
+      <p><strong>Goal:</strong> {{goal}}%</p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="advice-block">
+      <p><strong>You can miss:</strong> <span class="miss">{{canMiss}}</span> more classes</p>
+      <p><strong>You must attend:</strong> <span class="attend">{{mustAttend}}</span> classes to reach your goal</p>
+    </div>
+  </div>
+</body>
+</html>
