@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Applications</title>
+  <link rel="stylesheet" href="/navbar.css" />
+  <link rel="stylesheet" href="/myapplications.css" />
+
+  
+</head>
+<body>
+  {{> jobsNavbar}}
+
+  <h2>📂 My Applications</h2>
+
+  {{#each applications}}
+  <div class="application-card">
+    <div class="app-info">
+      <img src="{{this.job.logoUrl}}" alt="logo" />
+      <div class="app-info-content">
+        <strong>{{this.job.title}}</strong>
+        <small>{{this.job.company}}</small>
+        <small>Status: {{this.status}}</small>
+        {{#if this.note}}
+          <em>Note: {{this.note}}</em>
+        {{/if}}
+      </div>
+    </div>
+    <div class="app-actions">
+      <form method="POST" action="/jobs/{{this._id}}/delete?_method=DELETE" onsubmit="return confirm('Are you sure?');">
+        <button class="delete-btn" type="submit">Delete</button>
+      </form>
+    </div>
+  </div>
+{{/each}}
+
+
+</body>
+</html>
