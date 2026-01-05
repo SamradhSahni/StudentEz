@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/navbar.css" />
+  <link rel="stylesheet" href="/jobdetails.css">
+
+
+</head>
+
+<body>
+
+  <body>
+    {{> jobsNavbar}}
+
+    <div class="job-details-page">
+      <div class="job-details">
+        <img src="{{job.logoUrl}}" alt="{{job.company}}" height="60" />
+        <h2>{{job.title}}</h2>
+        <p><strong>Company:</strong> {{job.company}}</p>
+        <p><strong>Salary:</strong> {{job.salary}}</p>
+        <p><strong>Deadline:</strong> {{job.deadline}}</p>
+        <p><strong>Openings:</strong> {{job.openings}}</p>
+        <p><strong>Experience Required:</strong> {{job.experience}}</p>
+        <p><strong>Skills:</strong>
+          {{#each job.skills}}
+          <span class="tag">{{this}}</span>
+          {{/each}}
+        </p>
+        <p><strong>Description:</strong><br>{{job.description}}</p>
+
+        <form action="/jobs/{{job._id}}/apply" method="POST" enctype="multipart/form-data">
+          <label for="name">Full Name:</label>
+          <input type="text" name="name" required><br>
+
+          <label for="email">Email:</label>
+          <input type="email" name="email" required><br>
+
+          <label for="contact">Contact Number:</label>
+          <input type="text" name="contact" required><br>
+
+          <label for="resume">Upload Resume (PDF only):</label>
+          <input type="file" name="resume" accept=".pdf" required><br>
+
+          <button type="submit">Apply Now</button>
+        </form>
+
+      </div>
+    </div>
+  </body>
+
+
+
+
+</body>
+
+</html>
