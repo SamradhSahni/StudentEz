@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Applicants</title>
+  <link rel="stylesheet" href="/navbar.css" />
+  <link rel="stylesheet" href="/1.css">
+</head>
+<body>
+  {{> jobsNavbar}}
+
+  <h2>📋 Applicants for "{{job.title}}"</h2>
+
+  {{#if applicants.length}}
+    {{#each applicants}}
+      <div style="border: 1px solid #ccc; padding: 15px; margin: 15px 0; border-radius: 10px; background: #f9f9f9;">
+        <p><strong>Name:</strong> {{this.name}}</p>
+        <p><strong>Email:</strong> {{this.email}}</p>
+        <p><strong>Contact Number:</strong> {{this.contact}}</p>
+        <p><strong>Status:</strong> {{this.status}}</p>
+        <p><strong>Note:</strong> {{this.note}}</p>
+        <p><a href="/uploads/{{this.resume}}" download>📥 Download Resume</a></p>
+
+        <form method="POST" action="/jobs/{{../job._id}}/applicants/{{this._id}}/decision">
+          <label><strong>Update Status:</strong></label>
+          <select name="status" required>
+            <option value="Pending" {{#if (eq this.status "Pending")}}selected{{/if}}>Pending</option>
+            <option value="Accepted" {{#if (eq this.status "Accepted")}}selected{{/if}}>Accepted</option>
+            <option value="Declined" {{#if (eq this.status "Declined")}}selected{{/if}}>Declined</option>
+          </select>
+
+          <br/><br/>
+
+          <label><strong>Note (optional):</strong></label><br/>
+          <textarea name="note" rows="3" cols="50" placeholder="Enter your note...">{{this.note}}</textarea>
+
+          <br/><br/>
+          <button type="submit"> Submit Decision</button>
+        </form>
+      </div>
+    {{/each}}
+  {{else}}
+    <p>No applicants found for this job.</p>
+  {{/if}}
+
+</body>
+</html>
