@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Available Jobs</title>
+  <link rel="stylesheet" href="/navbar.css" />
+  <link rel="stylesheet" href="/jobslist.css" />
+</head>
+<body>
+  {{> jobsNavbar}}
+
+  <div class="jobs-list-page">
+    <h2>💼 Available Jobs</h2>
+    <div class="job-cards-container">
+      {{#each jobs}}
+        <div class="job-card">
+          <div class="job-card-left">
+            <img src="{{this.logoUrl}}" alt="{{this.company}} logo" class="job-logo" />
+          </div>
+          <div class="job-card-right">
+            <h3>{{this.title}}</h3>
+            <p class="company-name">{{this.company}}</p>
+            <p class="deadline">🕒 Deadline: {{formatDate this.deadline}}</p>
+            <a href="/jobs/{{this._id}}" class="view-btn">View Details</a>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</body>
+</html>
