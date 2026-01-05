@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Edit Job</title>
+  <link rel="stylesheet" href="/navbar.css" />
+  <link rel="stylesheet" href="/editjob.css" />
+</head>
+<body>
+  {{> jobsNavbar}}
+
+  <div class="create-job-container">
+    <h2>📝 Edit Job</h2>
+
+    <form action="/jobs/{{job._id}}/edit" method="POST" class="job-form">
+      <label for="title">Job Title</label>
+      <input type="text" id="title" name="title" value="{{job.title}}" required>
+
+      <label for="company">Company</label>
+      <input type="text" id="company" name="company" value="{{job.company}}" required>
+
+      <label for="logoUrl">Company Logo URL</label>
+      <input type="text" id="logoUrl" name="logoUrl" value="{{job.logoUrl}}" required>
+
+      <label for="salary">Salary</label>
+      <input type="text" id="salary" name="salary" value="{{job.salary}}" required>
+
+      <label for="experience">Experience Required</label>
+      <input type="text" id="experience" name="experience" value="{{job.experience}}" required>
+
+      <label for="skills">Required Skills (comma separated)</label>
+      <input type="text" id="skills" name="skills" value="{{job.skills}}" required>
+
+      <label for="description">Description</label>
+      <textarea id="description" name="description" required>{{job.description}}</textarea>
+
+      <label for="deadline">Deadline</label>
+      <input type="date" id="deadline" name="deadline" value="{{formatDateInput job.deadline}}" required>
+
+      <button type="submit" class="submit-btn">Update Job</button>
+    </form>
+  </div>
+</body>
+</html>
