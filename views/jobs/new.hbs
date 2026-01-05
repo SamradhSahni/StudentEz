@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/navbar.css" />
+    <link rel="stylesheet" href="/postjob.css">
+
+
+</head>
+<body>
+    {{> jobsNavbar}}
+
+<h2>➕ Post New Job</h2>
+
+<div class="post-job-container">
+  <form action="/jobs/new" method="POST">
+    <input type="text" name="title" placeholder="Job Title" required />
+    <input type="text" name="company" placeholder="Company Name" required />
+    <input type="url" name="logoUrl" placeholder="Company Logo URL" />
+    <input type="text" name="salary" placeholder="Salary (e.g., ₹6 LPA)" />
+    <input type="date" name="deadline" />
+    <input type="number" name="openings" placeholder="Openings" min="1" />
+    <input type="text" name="experience" placeholder="Experience (e.g., 0-2 years)" />
+    <input type="text" name="skills" placeholder="Skills (comma-separated)" />
+    <textarea name="description" placeholder="Job Description"></textarea>
+    <button type="submit">Create Job</button>
+  </form>
+</div>
+
+
+
+
+</body>
+</html>
