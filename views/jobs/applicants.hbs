@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/navbar.css" />
+
+</head>
+<body>
+    {{> jobsNavbar}}
+
+<h2>👥 Applicants for {{job.title}}</h2>
+<ul>
+  {{#each applications}}
+    <li>
+      {{this.applicant.name}} -
+      <a href="/jobs/{{../job._id}}/applicants/{{this._id}}">View Details</a>
+    </li>
+  {{/each}}
+</ul>
+
+
+</body>
+</html>
