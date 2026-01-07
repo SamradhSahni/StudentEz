@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{exam.subject}} - Exam Notes</title>
+  <link rel="stylesheet" href="/examdetails.css" />
+  <link rel="stylesheet" href="/navbar.css">
+</head>
+<body>
+  {{> navbar}}
+
+  <div class="container">
+    <h2 class="heading">
+      📝 {{exam.subject}} <span class="exam-date">({{exam.date}})</span>
+    </h2>
+
+    <h3 class="subheading"> Descriptions / Notes</h3>
+    {{#if notes.length}}
+      <ul class="note-list">
+        {{#each notes}}
+          <li class="note-item">
+            <strong>{{this.title}}</strong>
+            <span class="note-type">({{this.type}})</span>
+            <p class="note-content">{{this.content}}</p>
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p class="empty-msg">❗ No notes added yet.</p>
+    {{/if}}
+
+    <h4 class="subheading"> Add a New Note</h4>
+    <form class="note-form" method="POST" action="/exams/details/{{exam._id}}/add-note">
+      <input type="text" name="title" placeholder="Title (e.g. Important Chapter)" required />
+      <input type="text" name="type" placeholder="Type (e.g. link/tip/question)" required />
+      <textarea name="content" placeholder="Content (e.g. Watch XYZ video)" required></textarea>
+      <button type="submit">Add Note</button>
+    </form>
+  </div>
+</body>
+</html>
