@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-brand">
+      🎓 <a href="/home">StudentEz</a>
+    </div>
+
+    <div class="nav-links">
+      <a href="/home">🏠 Home</a>
+      <a href="/workshops">📚 All Workshops</a>
+      <a href="/workshops/my-enrollments">✅ My Enrollments</a>
+
+      {{#if user.isAdmin}}
+        <a href="/workshops/admin/create">➕ Create Workshop</a>
+        <a href="/workshops/admin/enrollments">👥 View Enrollments</a>
+      {{/if}}
+    </div>
+
+    <div class="nav-actions">
+      <form action="/logout" method="POST">
+        <button type="submit" class="logout-btn">🚪 Logout</button>
+      </form>
+    </div>
+  </div>
+</nav>
