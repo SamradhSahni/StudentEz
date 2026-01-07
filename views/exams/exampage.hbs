@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>📚 Exams</title>
+  <link rel="stylesheet" href="/exams.css" />
+  <link rel="stylesheet" href="/navbar.css">
+</head>
+<body>
+  {{> navbar}}
+
+  <div class="container">
+    <h2 class="heading">📚 Upcoming Exams</h2>
+
+    <form class="exam-form" method="POST" action="/exams/add">
+      <input type="text" name="subject" placeholder="Subject (e.g. Math)" required />
+      <input type="date" name="date" required />
+      <button type="submit">Add Exam</button>
+    </form>
+
+    <ul class="exam-list">
+      {{#each exams}}
+        <li class="exam-item">
+          <div class="exam-info">
+            <strong>{{this.subject}}</strong> — <span class="exam-date">{{this.date}}</span>
+          </div>
+          <a href="/exams/details/{{this._id}}" class="details-link"> Details</a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</body>
+</html>
