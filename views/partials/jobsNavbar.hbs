@@ -1,0 +1,25 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-brand">🎓 <a href="/home">StudentEz</a></div>
+
+    <div class="nav-links">
+      <a href="/home">🏠 Home</a>
+      <a href="/jobs">📄 All Jobs</a>
+
+      {{#if user.isAdmin}}
+        <a href="/jobs/new">➕ Post New Job</a>
+        <a href="/jobs/manage">🧑‍💼 Manage Applications</a>
+      {{else}}
+        <a href="/jobs/my/applications">📂 My Applications</a>
+      {{/if}}
+
+      <a href="/resume/screener">📄 Resume Screener</a>
+    </div>
+
+    <div class="nav-actions">
+      <form action="/logout" method="POST">
+        <button type="submit" class="logout-btn">🚪 Logout</button>
+      </form>
+    </div>
+  </div>
+</nav>
