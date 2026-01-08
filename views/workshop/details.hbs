@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{workshop.title}}</title>
+  <link rel="stylesheet" href="/navbar.css" />
+  <link rel="stylesheet" href="/workshopDetails.css" />
+</head>
+
+<body>
+  {{> workshopNavbar}}
+
+  <div class="details-container">
+    <div class="details-card">
+      <h2 class="workshop-title">🎓 {{workshop.title}}</h2>
+
+      {{#if workshop.imageUrl}}
+      <div class="image-wrapper">
+        <img src="{{workshop.imageUrl}}" alt="{{workshop.title}}" class="workshop-image">
+      </div>
+      {{/if}}
+
+      <div class="info">
+        <p><strong>👨‍🏫 Instructor:</strong> {{workshop.instructor}}</p>
+        <p><strong>📅 Date:</strong> {{workshop.date}}</p>
+        <p><strong>⏰ Time:</strong> {{workshop.time}}</p>
+        <p><strong>📖 Description:</strong></p>
+        <p class="description">{{workshop.description}}</p>
+        <p><strong>📍 Location / Meeting Link:</strong> 
+          <a href="{{workshop.location}}" target="_blank">{{workshop.location}}</a>
+        </p>
+      </div>
+
+      <div class="enroll-section">
+        {{#if isEnrolled}}
+          <p class="status enrolled">✅ You are already enrolled in this workshop.</p>
+        {{else}}
+          <form method="POST" action="/workshops/enroll/{{workshop._id}}">
+            <button type="submit" class="enroll-btn">🚀 Enroll Now</button>
+          </form>
+        {{/if}}
+        <a href="/workshops" class="back-link">← Back to All Workshops</a>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
