@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Workshop | StudentEz</title>
+  <link rel="stylesheet" href="/navbar.css" />
+  <link rel="stylesheet" href="/createWorkshop.css" />
+</head>
+<body>
+  {{> workshopNavbar}}
+
+  <section class="form-section">
+    <div class="form-container">
+      <h2 class="form-title">🚀 Create New Workshop</h2>
+      <p class="form-subtext">Provide the details below to launch a new student workshop.</p>
+
+      <form class="workshop-form" method="POST" action="/workshops/admin/create">
+        <label for="title">Workshop Title:</label>
+        <input type="text" id="title" name="title" required placeholder="e.g. Web Dev Bootcamp" />
+
+        <label for="instructor">Instructor Name:</label>
+        <input type="text" id="instructor" name="instructor" required placeholder="e.g. John Doe" />
+
+        <div class="form-row">
+          <div>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required />
+          </div>
+          <div>
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required />
+          </div>
+        </div>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required placeholder="Brief overview of the workshop..."></textarea>
+
+        <label for="location">Location / Meeting Link:</label>
+        <input type="text" id="location" name="location" required placeholder="e.g. Zoom link or Room no." />
+
+        <label for="imageUrl">Workshop Banner (Image URL):</label>
+        <input type="url" id="imageUrl" name="imageUrl" placeholder="https://example.com/banner.jpg" />
+
+        <button type="submit"> Create Workshop</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>
