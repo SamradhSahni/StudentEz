@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Available Workshops</title>
+  <link rel="stylesheet" href="/workshopList.css" />
+  <link rel="stylesheet" href="/navbar.css" />
+</head>
+
+<body>
+  {{> workshopNavbar}}
+
+  <div class="container">
+    <h2 class="heading">🎤 Available Workshops</h2>
+
+    {{#if workshops.length}}
+    <div class="workshop-list">
+      {{#each workshops}}
+      <div class="workshop-card">
+        {{#if this.imageUrl}}
+        <img src="{{this.imageUrl}}" alt="{{this.title}}" class="workshop-image">
+        {{/if}}
+
+        <h3>{{this.title}}</h3>
+        <p>{{this.description}}</p>
+        <a href="/workshops/{{this._id}}">View Details</a>
+
+        {{#if ../user.isAdmin}}
+        <form action="/workshops/admin/delete/{{this._id}}" method="POST" style="display:inline;">
+          <button onclick="return confirm('Are you sure?')" class="delete-btn">🗑️ Delete</button>
+        </form>
+        {{/if}}
+      </div>
+      {{/each}}
+
+    </div>
+    {{else}}
+    <p class="empty">No workshops available at the moment.</p>
+    {{/if}}
+  </div>
+</body>
+
+</html>
