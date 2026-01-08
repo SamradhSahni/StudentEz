@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workshop Enrollments | StudentEz</title>
+  <link rel="stylesheet" href="/navbar.css" />
+  <link rel="stylesheet" href="/enrollments.css" />
+</head>
+<body>
+  {{> workshopNavbar}}
+
+  <div class="container">
+    <h2 class="page-title">📋 Workshop Enrollments</h2>
+    <p class="subtitle">Check out which students have enrolled for each of your workshops. Stay organized and informed.</p>
+
+    {{#each workshops}}
+      <div class="workshop-card">
+        <h3 class="workshop-title">{{this.title}}</h3>
+        
+        {{#if this.enrolledUsers.length}}
+          <ul class="enrolled-list">
+            {{#each this.enrolledUsers}}
+              <li class="enrolled-item">
+                <span class="user-icon">👤</span>
+                {{#if this.username}}
+                  {{this.username}}
+                {{else if this.email}}
+                  {{this.email}}
+                {{else}}
+                  Unknown User
+                {{/if}}
+              </li>
+            {{/each}}
+          </ul>
+        {{else}}
+          <p class="no-enroll">⚠️ No enrollments yet</p>
+        {{/if}}
+      </div>
+    {{/each}}
+  </div>
+</body>
+</html>
