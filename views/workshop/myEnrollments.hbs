@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Enrollments</title>
+  <link rel="stylesheet" href="/navbar.css" />
+  <link rel="stylesheet" href="/myenroll.css">
+</head>
+<body>
+  {{> workshopNavbar}}
+
+  <h2>🎓 My Enrolled Workshops</h2>
+
+  {{#if workshops.length}}
+    <ul>
+      {{#each workshops}}
+        <li>
+          <h3>{{this.title}}</h3>
+          <p>{{this.description}}</p>
+          {{#if this.imageUrl}}
+            <img src="{{this.imageUrl}}" width="200" />
+          {{/if}}
+          <form action="/workshops/unenroll/{{this._id}}" method="POST" style="display:inline;">
+            <button type="submit">❌ Unenroll</button>
+          </form>
+          <a href="/workshops/{{this._id}}">🔍 View Details</a>
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p>You haven't enrolled in any workshops yet.</p>
+  {{/if}}
+</body>
+</html>
