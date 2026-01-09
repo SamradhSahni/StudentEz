@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Today's Tasks</title>
+  <link rel="stylesheet" href="/plannerhome.css" />
+  <link rel="stylesheet" href="/navbar.css">
+</head>
+<body>
+  {{> navbar}}
+
+  <div class="container">
+    <h2 class="heading">🗓️ Today's Tasks ({{date}})</h2>
+
+    <form class="add-task-form" method="POST" action="/planner/add">
+      <input type="text" name="title" placeholder="Task title..." required />
+      <input type="date" name="date" value="{{date}}" required />
+      <button type="submit">➕ Add Task</button>
+    </form>
+
+    {{#if tasks.length}}
+      <ul class="task-list">
+        {{#each tasks}}
+          <li class="task-item {{#if this.completed}}completed{{/if}}">
+            <div class="task-title">
+              {{#if this.completed}}
+                ✅ <s>{{this.title}}</s>
+              {{else}}
+                🔲 {{this.title}}
+              {{/if}}
+            </div>
+            {{#unless this.completed}}
+              <form method="POST" action="/planner/complete/{{this._id}}">
+                <button class="complete-btn">✅ Complete</button>
+              </form>
+            {{/unless}}
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p class="empty-msg">🎉 No tasks for today!</p>
+    {{/if}}
+
+    <form id="dateForm" class="date-form">
+      <label for="taskDateInput">📅 Choose Date:</label>
+      <input type="date" name="date" id="taskDateInput" required />
+      <button type="submit">View Tasks</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("dateForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const date = document.getElementById("taskDateInput").value;
+      if (date) window.location.href = "/planner/date/" + date;
+    });
+  </script>
+</body>
+</html>
