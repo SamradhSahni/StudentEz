@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resume ATS Score</title>
+  <link rel="stylesheet" href="/navbar.css">
+  <link rel="stylesheet" href="/resumescore.css">
+</head>
+<body>
+  {{> jobsNavbar}}
+
+  <div class="resume-container">
+    <h2>📊 Advanced Resume ATS Report</h2>
+
+    <p><strong>Original Filename:</strong> {{resume.originalName}}</p>
+    <p><strong>Total ATS Score:</strong> {{resume.atsScore}}%</p>
+    <h3>Total ATS Score: {{resume.atsScore}}% - {{scoreLevel}}</h3>
+
+    <h3>🔍 Score Breakdown</h3>
+    <ul>
+      <li>✅ Keyword Match Score: {{details.keywordScore}}%</li>
+      <li>✅ Action Verbs Score: {{details.actionScore}}%</li>
+      <li>✅ Formatting Score: {{details.formattingScore}}%</li>
+      <li>✅ Resume Length Score: {{details.lengthScore}}%</li>
+      <li>📄 Pages: {{details.pageCount}}</li>
+      <li>📝 Word Count: {{details.wordCount}}</li>
+    </ul>
+
+    <h3>🛠 Suggestions for Improvement</h3>
+    <ul>
+      {{#each resume.suggestions}}
+        <li>⚠️ {{this}}</li>
+      {{/each}}
+    </ul>
+
+    <a href="/resume/screener">⬅️ Upload Another Resume</a>
+  </div>
+</body>
+
+</html>
