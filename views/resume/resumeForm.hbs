@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume Screener</title>
+  <link rel="stylesheet" href="/navbar.css" />
+  <link rel="stylesheet" href="/resume.css">
+</head>
+<body>
+  {{> jobsNavbar}}
+  <div class="resume-screener-wrapper">
+
+    <section class="hero">
+      <h1>📄 Resume Screener</h1>
+      <p>Want to know if your resume is ATS-friendly? Upload your resume and get an instant score!</p>
+      <form action="/resume/screener" method="POST" enctype="multipart/form-data" class="hero-form">
+        <input type="file" name="resume" accept=".pdf" required>
+        <button type="submit">🎯 Get My ATS Score</button>
+      </form>
+    </section>
+
+    <section class="why-screening">
+      <h2>🔍 Why Resume Screening Matters</h2>
+      <p>
+        Over 95% of top companies use Applicant Tracking Systems (ATS) to filter resumes. If your resume lacks the right format, keywords, or structure — it might be rejected before a human sees it.
+        Our tool simulates real ATS behavior and provides detailed feedback so you can:
+      </p>
+      <ul>
+        <li>✅ Know your ATS score out of 100</li>
+        <li>📌 Identify missing job-specific keywords</li>
+        <li>📄 Improve formatting, project, and experience sections</li>
+        <li>🚀 Increase your chances of getting shortlisted</li>
+      </ul>
+    </section>
+
+    
+
+    <section class="extra-note">
+      <p><strong>Pro Tip:</strong> Targeting a software developer role? Make sure your resume includes technologies like <em>JavaScript, React, Node.js, MongoDB</em>, and <em>projects</em> that demonstrate real-world application!</p>
+    </section>
+
+  </div>
+
+</body>
+</html>
