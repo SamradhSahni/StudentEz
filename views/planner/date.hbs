@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>📅 Tasks for {{date}}</title>
+  <link rel="stylesheet" href="/planner.css" />
+  <link rel="stylesheet" href="/navbar.css" />
+</head>
+<body>
+  {{> navbar}}
+
+  <div class="container">
+    <h2 class="heading">📅 Tasks for {{date}}</h2>
+
+    {{#if tasks.length}}
+      <ul class="task-list">
+        {{#each tasks}}
+          <li class="task-item {{#if this.completed}}completed{{/if}}">
+            <div class="task-title">
+              {{#if this.completed}}
+                ✅ <s>{{this.title}}</s>
+              {{else}}
+                🔲 {{this.title}}
+              {{/if}}
+            </div>
+
+            {{#unless this.completed}}
+              <form class="complete-form" method="POST" action="/planner/complete/{{this._id}}">
+                <button class="complete-btn">✅ Complete</button>
+              </form>
+            {{/unless}}
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p class="empty-msg">🎉 No tasks for today. Great job!</p>
+    {{/if}}
+  </div>
+</body>
+</html>
